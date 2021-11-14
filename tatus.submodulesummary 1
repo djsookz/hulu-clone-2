@@ -1,0 +1,49 @@
+[1mdiff --git a/components/Results.js b/components/Results.js[m
+[1mindex 416563e..fa33011 100644[m
+[1m--- a/components/Results.js[m
+[1m+++ b/components/Results.js[m
+[36m@@ -1,13 +1,12 @@[m
+ import Thumbnail from "./Thumbnail";[m
+[31m-import FlipMove from "react-flip-move";[m
+ [m
+ function Results({ results }) {[m
+   return ([m
+[31m-    <FlipMove className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:flex flex-wrap justify-center">[m
+[32m+[m[32m    <div className="px-5 my-10 sm:grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:flex flex-wrap justify-center">[m
+       {results.map((result) => ([m
+         <Thumbnail key={result.id} result={result} />[m
+       ))}[m
+[31m-    </FlipMove>[m
+[32m+[m[32m    </div>[m
+   );[m
+ }[m
+ [m
+[1mdiff --git a/components/Thumbnail.js b/components/Thumbnail.js[m
+[1mindex 9363180..f6ca826 100644[m
+[1m--- a/components/Thumbnail.js[m
+[1m+++ b/components/Thumbnail.js[m
+[36m@@ -1,14 +1,10 @@[m
+ import Image from "next/image";[m
+ import { ThumbUpIcon } from "@heroicons/react/outline";[m
+[31m-import { forwardRef } from "react";[m
+ [m
+[31m-const Thumbnail = forwardRef(({ result, ref }) => {[m
+[32m+[m[32mfunction Thumbnail({ result }) {[m
+   const BASE_URL = "https://image.tmdb.org/t/p/original/";[m
+   return ([m
+[31m-    <div[m
+[31m-      ref={ref}[m
+[31m-      className="p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50"[m
+[31m-    >[m
+[32m+[m[32m    <div className="p-2 group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50">[m
+       <Image[m
+         layout="responsive"[m
+         height={1080}[m
+[36m@@ -31,6 +27,6 @@[m [mconst Thumbnail = forwardRef(({ result, ref }) => {[m
+       </div>[m
+     </div>[m
+   );[m
+[31m-});[m
+[32m+[m[32m}[m
+ [m
+ export default Thumbnail;[m
